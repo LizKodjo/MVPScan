@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HOSTNAME = socket.gethostname()
-# IP_ADDRESS = socket.gethostbyname(HOSTNAME)
-IP_ADDRESS = socket.getaddrinfo(HOSTNAME)
+IP_ADDRESS = socket.gethostbyname(HOSTNAME)
+# IP_ADDRESS = socket.getaddrinfo(HOSTNAME)
 RECEIVER_URL = os.getenv("RECEIVER_URL", "http://receiver:8000/report")
 PORT_RANGE = range(20, 1025)
 

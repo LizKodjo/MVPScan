@@ -2,14 +2,14 @@ services:
   receiver:
     build: ./receiver
     ports:
-      - "8000:8000"
+      - 8000:8000
     volumes:
       - ./receiver/data.json:/app/data.json
   scanner1:
     build: ./scanner
-    env_file:
-      - /receiver/.env
+    environment:
+      - RECEIVER_URL=http://receiver:8000/report
   scanner2:
     build: ./scanner
-    env_file:
-      - ./receiver/.env
+    environment:
+      - RECEIVER_URL=http://receiver:8000/report
